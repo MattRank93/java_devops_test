@@ -20,7 +20,7 @@ import java.util.UUID;
 
 
 @Controller
-public class UserController {
+public class UserService {
 
     private final UserRepository userRepo;
     private final RanksSanitizers rankSani;
@@ -29,7 +29,7 @@ public class UserController {
 
 
     @Autowired
-    public UserController(UserRepository userRepo, RanksSanitizers rankSani) {
+    public UserService(UserRepository userRepo, RanksSanitizers rankSani) {
         this.userRepo = userRepo;
         this.rankSani = rankSani;
     }

@@ -1,6 +1,6 @@
 package com.example.Java_devops_test.routes;
 
-import com.example.Java_devops_test.controller.UserController;
+import com.example.Java_devops_test.controller.UserService;
 import com.example.Java_devops_test.models.User;
 import com.example.Java_devops_test.requestobjects.UserRequest;
 import org.springframework.http.ResponseEntity;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/user")
-public class UserRoute {
+public class UserController {
 
-    private final UserController userController;
+    private final UserService userController;
 //    private final UserResponse userResponse;
 
-    public UserRoute(UserController userController) {
+    public UserController(UserService userController) {
         this.userController = userController;
     }
 

@@ -1,8 +1,12 @@
 package com.example.Java_devops_test.routes;
 
 import com.example.Java_devops_test.Services.UserService;
+import com.example.Java_devops_test.config.MessagingConfig;
+import com.example.Java_devops_test.models.BreadCrumb;
 import com.example.Java_devops_test.models.User;
 import com.example.Java_devops_test.requestobjects.UserRequest;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +17,9 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserService userController;
-//    private final UserResponse userResponse;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     public UserController(UserService userController) {
         this.userController = userController;
@@ -72,9 +78,16 @@ public class UserController {
          return userController.register(userRequest);
     }
 
-//    @PostMapping("/test-publish")
-//    public void testPublisher(@RequestBody UserRequest userRequest) {
-////        rabbitPublisher.send();
-//    }
+    @PostMapping("/test-publish")
+    public String testPublisher(@RequestBody UserRequest userRequest) {
+
+//        42.645846345722205, -87.85539417066974
+        BreadCrumb crumb = new BreadCrumb(426458463, -87855394, 854, 1100);
+
+        rabbitTemplate.convertAndSend("matts_new_exchange", "matts_new_key", crumb);
+
+        return "published";
+
+    }
 
 }

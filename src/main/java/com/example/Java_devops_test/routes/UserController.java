@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/user")
@@ -79,7 +80,7 @@ public class UserController {
     }
 
     @PostMapping("/test-publish")
-    public String testPublisher(@RequestBody UserRequest userRequest) {
+    public String testPublisher() {
 
 //        42.645846345722205, -87.85539417066974
         BreadCrumb crumb = new BreadCrumb(426458463, -87855394, 854, 1100);

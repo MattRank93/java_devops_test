@@ -11,6 +11,13 @@ spring:
     active: dev
 
 
+
+#rabbitmq:
+#  image: rabbitmq:management
+#  ports:
+#    - "5672:5672"
+#    - "15672:15672"
+
 server:
   port: 7885
 

@@ -1,4 +1,4 @@
-package com.example.Java_devops_test.controller;
+package com.example.Java_devops_test.Services;
 import com.example.Java_devops_test.middleware.RanksSanitizers;
 import com.example.Java_devops_test.models.User;
 import com.example.Java_devops_test.models.UserRepository;

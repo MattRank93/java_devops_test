@@ -1,8 +1,5 @@
 package com.example.Java_devops_test.routes;
 
-import com.example.Java_devops_test.controller.UserService;
-import com.example.Java_devops_test.models.User;
-import com.example.Java_devops_test.requestobjects.UserRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,17 +9,22 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class UtilityController {
 
-    private final UserService userController;
-//    private final UserResponse userResponse;
 
-    public UtilityController(UserService userController) {
-        this.userController = userController;
+    public UtilityController() {
+        ;
     }
 
 
     @GetMapping("/health")
-    public String getAllUsers(){
-        return "healthy";
+    public ResponseEntity<?> healthCheck(){
+        Runtime runtime = Runtime.getRuntime();
+        long freeMemory = runtime.freeMemory();
+        long maxMemory = runtime.maxMemory();
+        long totalMemory = runtime.totalMemory();
+
+        return ResponseEntity.ok("free mem: " + freeMemory/1048576.0 + "\n"
+                + "max mem: " + maxMemory/1048576.0 + "\n"
+                + "total mem: " + totalMemory/1048576.0 );
     }
 
 }

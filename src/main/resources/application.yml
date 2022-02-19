@@ -7,12 +7,12 @@ spring:
       host: localhost
       port: 27017
       database: SSSS
-#  profiles:
-#    active: dev
+  profiles:
+    active: dev
 
 
 server:
-  port: 7886
+  port: 7885
 
 logging:
   level:

@@ -1,6 +1,6 @@
 package com.example.Java_devops_test.routes;
 
-import com.example.Java_devops_test.controller.UserService;
+import com.example.Java_devops_test.Services.UserService;
 import com.example.Java_devops_test.models.User;
 import com.example.Java_devops_test.requestobjects.UserRequest;
 import org.springframework.http.ResponseEntity;
@@ -71,5 +71,10 @@ public class UserController {
     public ResponseEntity<?> registeruser(@RequestBody UserRequest userRequest) {
          return userController.register(userRequest);
     }
+
+//    @PostMapping("/test-publish")
+//    public void testPublisher(@RequestBody UserRequest userRequest) {
+////        rabbitPublisher.send();
+//    }
 
 }

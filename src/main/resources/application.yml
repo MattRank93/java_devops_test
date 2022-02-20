@@ -1,5 +1,10 @@
 #logging
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: mattrank
+    password: 5minrspp
   application:
     name: demo1
   data:
@@ -10,13 +15,8 @@ spring:
   profiles:
     active: dev
 
-
-
-#rabbitmq:
-#  image: rabbitmq:management
-#  ports:
-#    - "5672:5672"
-#    - "15672:15672"
+rabbit:
+  queue: matts_new_queue
 
 server:
   port: 7885

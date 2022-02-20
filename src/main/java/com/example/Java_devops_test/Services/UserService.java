@@ -34,9 +34,9 @@ public class UserService {
         this.rankSani = rankSani;
     }
 
-    MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
-    MongoDatabase database = mongoClient.getDatabase("javaSanitation");
-    MongoCollection<Document> collection = database.getCollection("SpringUser");
+//    MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+//    MongoDatabase database = mongoClient.getDatabase("javaSanitation");
+//    MongoCollection<Document> collection = database.getCollection("SpringUser");
 
     public ResponseEntity<?> getAllUsers(){
         try{
@@ -77,7 +77,7 @@ public class UserService {
                 badPass = false;
                 Document document = new Document();
                 document.append("username", username);
-                collection.insertOne(document);
+//                collection.insertOne(document);
                 System.out.println(document);
             }
             return new SanitizerResponse(username, badPass);

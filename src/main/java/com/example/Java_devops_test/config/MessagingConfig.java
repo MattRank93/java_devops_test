@@ -20,9 +20,7 @@ public class MessagingConfig {
 
     @Bean
     public TopicExchange exchange() {
-
         return new TopicExchange("matts_new_exchange");
-
     }
 
     @Bean

@@ -1,5 +1,6 @@
 package com.example.Java_devops_test.consumer;
 
+import com.example.Java_devops_test.models.BreadCrumb;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -15,10 +16,19 @@ public class QueueConsumer {
 
 
     @RabbitListener(queues = "matts_new_queue")
-    public void receive(@Payload Message message) {
-//        System.out.println("Message " + Arrays.toString(message.getBody()));
-        System.out.println(message.getBody());
-        System.out.println("recieved");
+    public void CrumbReceive(@Payload BreadCrumb crumb) {
+        System.out.println("######################");
+        System.out.println(crumb);
+        System.out.println("######################");
+
+    }
+
+    @RabbitListener(queues = "test")
+    public void TestReceive(@Payload String test) {
+        System.out.println("######################");
+        System.out.println(test);
+        System.out.println("######################");
+
     }
 
 }

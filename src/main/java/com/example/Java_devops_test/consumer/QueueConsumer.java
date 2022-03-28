@@ -23,6 +23,14 @@ public class QueueConsumer {
 
     }
 
+    @RabbitListener(queues = "test_queue")
+    public void TestQueueReceive(@Payload String test) {
+        System.out.println("######################");
+        System.out.println(test);
+        System.out.println("######################");
+
+    }
+
     @RabbitListener(queues = "test")
     public void TestReceive(@Payload String test) {
         System.out.println("######################");
